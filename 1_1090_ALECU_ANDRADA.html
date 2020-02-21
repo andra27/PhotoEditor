@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Photo Editor</title>
+        <link href="1_1090_ALECU_ANDRADA.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Baskervville&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+
+
+    </head>
+
+    <body>
+        <h2>Photo Editor</h2>
+
+        <div class="square">
+            <div class="content a">
+                <input type="file"  id="load" capture><!--  accept="image/*" -->
+                <p>
+                    <label for="brightness">Brightness</label>
+                    <input id="brightness" name="brightness" type="range" min=-100 max=100 value=0/>
+                </p>
+
+                <p>
+                        <label for="contrast">Contrast</label>
+                        <input id="contrast" name="contrast" type="range" min=-100 max=100 value=0/>
+                </p>
+
+                <p>
+                        <label for="vibrance">Vibrance</label>
+                        <input id="vibrance" name="vibrance" type="range" min=-100 max=100 value=0/>
+                </p>
+                <p>
+                        <label for="sepia">Sepia</label>
+                        <input id="sepia" name="sepia" type="range" min=-100 max=100 value=0/>
+                </p>
+
+                <p>
+                        <label for="hue">Hue</label>
+                        <input id="hue" name="hue" type="range" min=-100 max=100 value=0/>
+                </p>
+
+                <p>
+                        <label for="gamma">Gamma</label>
+                        <input id="gamma" name="gamma" type="range" min=-100 max=100 value=0/>
+                </p>
+
+
+                <p>
+                    <button id="vintage" class="filter" >Vintage</button>
+                    <button id="lomo" class="filter">Lomo</button>
+                    <button id="clarity" class="filter">Clarity</button>
+                    <button id="orangePeel" class="filter">Orange Peel</button>
+                </p>
+
+                <input  type="text" id="inputt" placeholder="Type a message">
+                <button id="done" onclick="writeText(this)">Add text to image</button>
+
+                <p>
+                    <div class="colors">Colors:  
+            
+                        <div style="background:black;" id="black" onclick="changeColor(this)"></div> 
+                        <div style="background:red;" id="red" onclick="changeColor(this)"></div>   
+                        <div style="background:blue  ;" id="blue" onclick="changeColor(this)"></div>
+                        <div style=" background:darkmagenta;" id="darkmagenta" onclick="changeColor(this)"></div>
+                        <div style="background:limegreen;" id="limegreen" onclick="changeColor(this)"></div>
+                        <div style= "background:orange;" id="orange" onclick="changeColor(this)"></div>
+                            
+                        
+                    </div>
+                </p>
+
+                <p>
+                
+                    <div class="toolbar">
+                            <a href="#" id="tool" onclick="Tool('tool')">Brush<br/><img src="media/icons/brush-icon.png" width=40% height=40%></a>
+                            
+                    </div>
+                
+                </p>
+
+                
+                <p>
+                        <button id="reset" onclick="resetButton( this)">Reset</button>
+                        <button id="rotate" onclick="rotate(this)">Rotate</button>
+                        <button id="resize" onclick="resize(this)">Resize</button>
+                        <a href="#" id="imgSave" download="image.png" onclick="SaveImage(this)"><button id="save" onclick="SaveImage()">Save</button></a>  <!--o fctie cu onclik=SaveImg()??-->
+            
+                </p> 
+    
+
+                
+                <p>
+
+                        <input id="width" type="text" placeholder="Width"/>
+                        <input id="height" type="text" placeholder="Height"/>
+                        <input id="x" type="text" placeholder="X location"/>
+                         <input id="y" type="text" placeholder="Y location"/>   
+                        <button id="preview" onclick="preview(this)">Preview</button> 
+                        <button id="crop" onclick="crop(this)">Crop</button>
+                </p>
+
+
+            </div>
+            
+        </div>
+
+        <div class="square">
+            <div class="content">
+                <canvas id="myCanvas" ondragover="dragover(event)" ondrop="drop(event)"> </canvas>
+            </div>
+        </div>    
+
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script> 
+        <script type="text/javascript" src="1_1090_ALECU_ANDRADA.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   
+        <script>
+        
+        
+function dragover(ev){
+    ev.preventDefault();
+}
+
+function drop(ev){
+    ev.preventDefault();
+    var imgUpd=event.dataTransfer.files[0];
+    var canvas=document.getElementById('myCanvas');
+    var ctx=canvas.getContext('2d');
+        if(imgUpd)
+        {
+            var read=new FileReader();
+            read.readAsDataURL(imgUpd);
+            read.onload=function(ev)
+            {
+                var img=document.createElement('img');
+                img.src=ev.target.result;
+                img.onload=function(e)
+                {
+                     canvas.width=img.width;
+                     canvas.height=img.height;
+                     ctx.drawImage(img,0,0);
+                    
+                    
+
+                }
+            }
+        }
+        
+    
+   
+}
+
+
+        
+        </script>
+    </body>
+</html>

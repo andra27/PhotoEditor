@@ -1,0 +1,136 @@
+
+  body{
+    background: url("media/back.jpg");
+    overflow: hidden;
+}  
+.square {
+    border:1px solid black;
+    float:left;
+    position: relative;
+    width: 46%;
+    height: 670px;
+    margin:0.5%;
+    overflow:hidden;
+}
+
+.content {
+     background: url("media/background.jpg"); 
+    border:1px solid black;
+    position:absolute;
+    color: white;
+    font-family: 'Baskervville', serif; 
+    height:100%; 
+    width:100%; 
+}
+
+div.a{
+    padding: 15px;
+}
+
+h2{
+    font-family: 'Love Ya Like A Sister', cursive;
+    text-align: center;
+    font-size: 40px;
+    margin: 5px;
+    color: black;
+}
+
+p{
+    margin-bottom: 10px;
+}
+button{
+    font-family: 'Baskervville', serif;
+    border-radius: 10%;
+    border:2px solid white;
+    padding:6px;
+    margin-top: 6px;
+    margin-right: 6px;
+}
+input[type="file"]{
+    font-family: 'Baskervville', serif;
+    border-radius: 10%;
+    border:2px solid white;
+    padding:5px;
+    margin-top: 4px;
+    
+}
+#image{
+    height: 50%;
+    border: 5px solid white;
+}
+
+.colors{
+    font-family: 'Baskervville', serif;
+    margin-right: 10px;
+}
+.colors > div {
+    margin-top: 6px;
+    margin-left: 6px;
+    display: inline-grid;
+    width:max-content;
+    text-align: center;
+    padding: 15px;
+    width:10px;
+    height:10px;
+    color:white;
+}
+
+
+.toolbar{
+    width: 50%;
+    /* background-color: #444444; */
+    overflow: auto;
+}
+ 
+.toolbar a {
+    float: left;
+    width: 18%;
+    margin-top:7px;
+    margin-right: 7px;
+    font-size: 12px;
+    text-align: center;
+    padding: 1px 1px; 
+    transition: all 0.5s ease; 
+    color: white;
+    border:0.8px double white;
+    display:block;
+}
+
+.toolbar a:hover {
+    background-color: rgb(96, 223, 206);
+  }
+
+
+  .selected{
+    background-color: rgb(96, 223, 206);
+
+  }
+
+
+
+  #myCanvas{
+   /* border: 3px solid white;*/
+    height:99% ; 
+    width:99%; 
+}
+
+
+
+#width, #height{
+    width: 38px;
+    font-family: 'Baskervville', serif;
+    border-radius: 10%;
+    border:2px solid white;
+}
+#x,#y{
+    font-family: 'Baskervville', serif;
+    border-radius: 10%;
+    border:2px solid white;
+    width: 59px;
+}
+
+
+.pressed {
+    box-shadow: 0 0 20px white;
+    background-color: grey;
+  }
